@@ -1,0 +1,632 @@
+/* Colores base */
+:root {
+  --fucsia: #e5026d;
+  --amarillo: #eabc03;
+  --azul-oscuro: #00334f;
+  --crema: #faf2dd;
+  --gris: #f1f1f1;
+}
+
+button {
+  all: unset;
+  font-family: inherit;
+}
+
+/* Header sticky */
+.sticky-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/*responsive header*/
+@media (max-width: 768px) {
+  .cotiza-btn {
+    font-size: 1em; /* mismo tamaño */
+    padding: 0.4rem 1rem; /* mismo padding */
+  }
+
+  .header-top {
+    flex-direction: column;
+    align-items: flex-end;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .top-nav {
+    margin-left: 0;
+    margin-top: 9px;
+    justify-content: flex-end;
+  }
+
+  .svg-logo-wrapper {
+    position: relative; /* opcional: evitar superposición */
+    margin-bottom: 1rem;
+  }
+
+  .nosotros-contenido {
+    flex-direction: column;
+  }
+
+  .img-nosotros,
+  .texto-nosotros {
+    flex: none;
+    width: 100%;
+  }
+}
+
+/* Parte superior rosa */
+.header-top {
+  display: flex;
+  background-color: var(--fucsia);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: nowrap;
+  height: 45px;
+  padding: 0 1rem;
+  position: relative;
+}
+
+/* Contenedor de los SVG */
+.svg-logo-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 233px;
+  height: 247px;
+  z-index: 0;
+  margin-top: -47px;
+  margin-left: -30px;
+  pointer-events: none;
+}
+
+.curve-svg {
+  position: absolute;
+  top: -47;
+  left: -30;
+  width: 233px;
+  height: 247px;
+  z-index: 0;
+}
+
+.logo-svg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 90px;
+  height: 135px;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+/* Navegación superior */
+.top-nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-left: auto;
+  z-index: 2;
+  flex-shrink: 0;
+}
+
+.top-nav a {
+  color: var(--azul-oscuro);
+  text-decoration: none;
+  font-weight: regular;
+}
+
+.cotiza-btn {
+  font-family: "Oswald", sans-serif;
+  background-color: var(--crema);
+  border: none;
+  padding: 0.4rem 1rem;
+  font-weight: regular;
+  font-size: 16px; /* <- fijo */
+  line-height: 1; /* <- evita expansión vertical */
+  white-space: nowrap; /* <- evita que se parta en móviles */
+  border-radius: 4px; /* si usas bordes redondeados */
+  box-sizing: border-box; /* asegura tamaño estable */
+  flex-shrink: 0; /* <- evita encogimiento en flex */
+}
+
+/* Barra inferior amarilla */
+.header-bottom {
+  background-color: #f1c40f;
+  padding: 0.5rem 1rem;
+  box-shadow: 0 3px 5px rgba(0, 10, 56, 0.199);
+}
+
+/* Contenedor principal tabla amarilla*/
+#inicio {
+  color: var(--crema);
+  padding: 40px 40px;
+}
+.bienvenida-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  aspect-ratio: 639 / 791;
+}
+
+.fondo-bienvenida-svg {
+  width: 100%;
+  height: auto;
+  display: flex;
+}
+
+.bienvenida-texto {
+  position: absolute;
+  top: 156px; /* donde comienza el rectángulo amarillo */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  text-align: center;
+  color: var(--azul-oscuro);
+  font-family: "Oswald", sans-serif;
+  line-height: 1.6;
+}
+
+/* Título destacado */
+.bienvenida-texto h1 {
+  font-size: clamp(2rem, 6vw, 3rem); /* Más grande en móviles */
+  color: var(--fucsia);
+  font-weight: regular;
+  text-shadow: 1px 1px var(--azul-oscuro);
+  margin: 1rem 0;
+}
+
+/* Texto intermedio */
+.bienvenida-texto p {
+  font-size: clamp(1.1rem, 3vw, 1.4rem); /* Más grande en móviles */
+  margin-bottom: 1rem;
+  font-family: "Oswald", sans-serif;
+}
+
+/* Palabra destacada */
+.bienvenida-texto .nombre {
+  font-weight: bold;
+}
+
+/* Subrayado con color */
+.subrayado {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  color: var(--fucsia);
+}
+
+/* Lista */
+.bienvenida-texto ul {
+  list-style: disc;
+  text-align: left;
+  font-size: clamp(1rem, 2.5vw, 1.2rem); /* Más grande en móviles */
+  padding-left: 1.5rem;
+  margin: 1.5rem auto 0 auto;
+  max-width: 90%;
+}
+
+@media (max-width: 480px) {
+  .bienvenida-texto {
+    top: 18%;
+    width: 95%;
+    padding: 0.5rem;
+  }
+
+  .bienvenida-texto ul {
+    font-size: 0.95rem;
+    padding-left: 1rem;
+  }
+}
+
+/*Fin bienvenida*/
+
+/* Navegación principal */
+.main-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 2rem;
+}
+
+.main-nav a {
+  color: var(--azul-oscuro);
+  text-decoration: none;
+  font-weight: regular;
+}
+
+.main-nav a.active {
+  color: var(--fucsia);
+}
+
+/*fin del menú*/
+
+body {
+  margin: 0;
+  font-family: "Oswald", sans-serif;
+  background-color: var(--crema);
+  color: var(--azul-oscuro);
+  font-weight: 400;
+}
+
+/* MAIN */
+main {
+  padding: 0px;
+}
+
+article {
+  margin-bottom: 0px;
+  padding: 20px;
+}
+
+/*Venga le contamos*/
+#nosotros {
+  background-color: var(--amarillo);
+  margin-left: 0px;
+  display: flex;
+  height: auto;
+  color: var(--fucsia);
+  font-family: 'Oswald', sans-serif; 
+}
+
+#nosotros p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.nosotros-contenido {
+  display: flex;
+  align-items: flex-start; /* alinea arriba si el texto es largo */
+  gap: 2rem; /* espacio entre imagen y texto */
+  flex-wrap: wrap; /* para que en móviles se acomode debajo */
+}
+
+.img-nosotros {
+ flex: 1;
+}
+
+.img-nosotros img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.texto-nosotros {
+  flex: 1;
+  padding: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-start; /* ← Esto alinea el contenido a la izquierda */
+  text-align: start;
+  max-width: 600px;      /* Limita el ancho en pantallas grandes */
+  box-sizing: border-box;
+  word-break: break-word; /* Evita desbordamiento por palabras largas */
+}
+
+@media (max-width: 768px) {
+  .texto-nosotros {
+    padding: 1.5rem;
+    max-width: 100%;     /* Permite que use todo el ancho disponible */
+  }
+}
+
+@media (max-width: 480px) {
+  .texto-nosotros {
+    padding: 1rem;
+    font-size: 1rem;     /* Reduce el tamaño de fuente si es necesario */
+  }
+}
+
+.texto-nosotros h2{
+  font-size: 2rem;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+}
+
+.texto-nosotros .link {
+  margin-top: 2rem;
+  font-weight: bold;
+  color: #e5026d;
+  text-transform: uppercase;}
+
+  @media (max-width: 768px) {
+    .nosotros-contenido {
+      flex-direction: column;
+    }
+  
+    .img-nosotros,
+    .texto-nosotros {
+      flex: none;
+      width: 100%;
+    }
+  }
+  
+
+/*servicios*/
+#servicios {
+  background-color: var(--azul-oscuro);
+}
+
+#servicios p,
+h5 {
+  color: var(--crema);
+  font-family: "Montserrat", sans-serif;
+}
+
+article h2 {
+  font-size: 28px;
+  color: var(--fucsia);
+  text-transform: uppercase;
+  margin-bottom: 15px;
+}
+
+article h4 {
+  color: var(--fucsia);
+  margin-top: 20px;
+  text-align: center;
+}
+
+article p,
+ul {
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+ul li {
+  margin-bottom: 8px;
+}
+
+.servicios {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  background-color: var(--azul-oscuro); /* azul oscuro */
+  padding: 3rem;
+  gap: 5rem;
+  flex-wrap: wrap; /* por si se reduce el ancho en móviles */
+}
+
+.servicio {
+  position: relative;
+  width: 180px;
+  max-width: 260px;
+  text-align: center;
+  flex: 1 1 200px;
+}
+
+.servicio .icono img{
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.icono {
+  width: 100%;
+}
+
+.icono svg {
+  width: 100%;
+  height: fit-content;
+  display: block;
+}
+
+.texto-servicio {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: var(--crema); /* o el color que uses */
+  font-family: 'Oswald', sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  width: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  pointer-events: none; /* evita que el texto bloquee clics en el SVG */
+}
+
+/*hamburguesa animación*/
+.imagen-hover {
+  overflow: hidden;
+  display: block;      /* Cambia de inline-block a block */
+  margin: 0 auto;      /* Centra horizontalmente */
+  max-width: 100vw;
+}
+
+.imagen-hover img {
+  display: block;
+  transition: transform 0.5s ease;
+  max-width: 100vw;   /* Ajusta este valor según lo que necesites */
+  max-height: 100vw;  /* Ajusta este valor según lo que necesites */
+  width: 100%;
+  height: auto;
+}
+
+.imagen-hover:hover img {
+  transform: translateY(429px); /* Cambia este valor para ajustar cuánto se desplaza */
+}
+
+/*carrusel*/
+article h2 {
+  font-size: 2rem;
+  color: var(--fucsia);
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+   max-width: 600px;      /* Limita el ancho del texto */
+  margin: 0 auto 1.5rem; /* Centra el texto y agrega espacio abajo */
+  text-align: center;    /* Centra el texto dentro del párrafo */
+  }
+
+article h3 {
+  font-size: 2rem;
+  color: var(--azul-oscuro);
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+   max-width: 600px;      /* Limita el ancho del texto */
+  margin: 0 auto 1.5rem; /* Centra el texto y agrega espacio abajo */
+  text-align: center;    /* Centra el texto dentro del párrafo */
+  }
+
+article p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: var(--azul-oscuro);
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  max-width: 600px;      /* Limita el ancho del texto */
+  margin: 0 auto 1.5rem; /* Centra el texto y agrega espacio abajo */
+  text-align: center;    /* Centra el texto dentro del párrafo */
+}
+
+.carrusel {
+  width: 100%;
+  max-width: 600px;
+  margin: auto;
+  overflow: hidden;
+  position: relative;
+}
+
+.carrusel input[type="radio"] {
+  display: none;
+}
+
+.carrusel__inner {
+  display: flex;
+  width: 600px; /* Si usas width: 100vw en cada slide */
+  max-width: 100%; /* 4 slides x 600px */
+  transition: transform 0.5s ease;
+}
+
+.carrusel__slide {
+  width: 600px; /* O usa el mismo ancho que .carrusel, por ejemplo 600px */
+  max-width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 0;
+  min-height: 300px;
+}
+
+.carrusel__slide img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  max-height: 280px;
+  object-fit: contain;
+  display: block;
+}
+
+#slide1:checked ~ .carrusel__inner {
+  transform: translateX(0%);
+}
+#slide2:checked ~ .carrusel__inner {
+  transform: translateX(-100%);
+}
+#slide3:checked ~ .carrusel__inner {
+  transform: translateX(-200%);
+}
+#slide4:checked ~ .carrusel__inner {
+  transform: translateX(-300%);
+}
+
+.carrusel__nav {
+  text-align: center;
+  margin-top: 10px;
+}
+
+.carrusel__nav label {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  background-color: #ccc;
+  border-radius: 50%;
+  margin: 0 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.carrusel__nav label:hover {
+  background-color: #555;
+}
+
+/* FOOTER */
+footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  background-color: var(--fucsia);
+  padding: 30px 20px;
+  position: relative;
+  font-size: 14px;
+}
+
+.footer-left a {
+  display: block;
+  margin-bottom: 5px;
+  color: var(--crema);
+  text-decoration: none;
+  font-weight: regular;
+  text-transform: uppercase
+}
+
+.footer-right {
+  text-align: right;
+  max-width: 300px;
+  color: var(--crema);
+}
+
+.footer-right p {
+  margin: 6px 0;
+}
+
+.footer-center {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  color: var(--crema);
+}
+
+/* RESPONSIVO */
+@media (max-width: 768px) {
+  .header-top,
+  .header-bottom,
+  footer {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .nav-top,
+  .nav-bottom {
+    flex-wrap: wrap;
+  }
+
+  .footer-left,
+  .footer-right {
+    width: 100%;
+  }
+
+  .footer-center {
+    position: static;
+    transform: none;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+  }
+}
